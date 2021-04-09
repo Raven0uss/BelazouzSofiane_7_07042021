@@ -6,3 +6,23 @@ body {
   max-width: 1240px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 1240px) {
+  body {
+    margin: 0 50px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0 25px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  body {
+    margin: 0 15px;
+  }
+}

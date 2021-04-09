@@ -23,9 +23,46 @@
       <img src="ressources/images/logo.png" id="logo" alt="Les petits plats" />
     </header>
     <main>
-      <div id="search-bar-container"></div>
+      <div id="search-bar-container">
+        <input
+          id="search-bar"
+          placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+        />
+        <span class="fas fa-search" id="search-bar-button" tabindex="0"></span>
+      </div>
       <div id="tags-container"></div>
-      <div id="filters-container"></div>
+      <div id="filters-container">
+        <div class="filter-wrapper" id="filter-ingredient">
+          <input class="filter-button filter-color" placeholder="Ingrédients" />
+          <span class="arrow-down">
+            <span
+              class="fas fa-chevron-down"
+              id="arrow-ingredient"
+            ></span
+          ></span>
+          <div class="filter-list-container filter-color"></div>
+        </div>
+        <div class="filter-wrapper" id="filter-device">
+          <input class="filter-button filter-color" placeholder="Appareil" />
+          <span class="arrow-down">
+            <span
+              class="fas fa-chevron-down"
+              id="arrow-device"
+            ></span
+          ></span>
+          <div class="filter-list-container filter-color"></div>
+        </div>
+        <div class="filter-wrapper" id="filter-ustensil">
+          <input class="filter-button filter-color" placeholder="Ustensiles" />
+          <span class="arrow-down">
+            <span
+              class="fas fa-chevron-down"
+              id="arrow-ustensil"
+            ></span
+          ></span>
+          <div class="filter-list-container filter-color"></div>
+        </div>
+      </div>
       <section id="recipes-list"></section>
     </main>
     <script type="module" src="./js/index.js"></script>

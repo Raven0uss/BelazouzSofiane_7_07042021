@@ -1,10 +1,15 @@
-html {
+html, body {
   font-family: "Lato", sans-serif;
 }
 
 body {
   max-width: 1240px;
   margin: 0 auto;
+}
+
+h3 {
+  margin-block-start: unset;
+  margin-block-end: unset;
 }
 
 @media screen and (max-width: 1240px) {

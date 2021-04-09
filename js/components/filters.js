@@ -49,16 +49,20 @@ const addEventsFilters = (elements) => {
     const input = element.firstElementChild;
     const arrow = document.getElementById(`arrow-${type}`);
 
+    const recipesListNode = document.getElementById("recipes-list");
+
     renderList(list, element, type);
 
     element.addEventListener("focusin", () => {
       arrow.className = "fas fa-chevron-up";
       input.placeholder = getPlaceholder(type, true);
+      recipesListNode.style.marginTop = "82px";
     });
 
     element.addEventListener("focusout", () => {
       arrow.className = "fas fa-chevron-down";
       input.placeholder = getPlaceholder(type, false);
+      recipesListNode.style.marginTop = "25px";
     });
 
     input.addEventListener("keyup", () => {

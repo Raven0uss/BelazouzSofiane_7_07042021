@@ -1,0 +1,95 @@
+#recipes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  justify-content: space-between;
+  margin-top: 25px;
+
+  .recipe-container {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+    width: 100%;
+    min-height: 364px;
+    border-radius: 5px;
+
+    .recipe-illustration {
+      width: 100%;
+      height: 178px;
+      background-color: #c7bebe;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .recipe-informations-block {
+      padding: 20px;
+      .recipe-informations-head {
+        display: flex;
+        justify-content: space-between;
+
+        .recipe-title {
+          font-size: 18px;
+          width: 100%;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .recipe-time-block {
+          display: flex;
+          font-weight: 700;
+          font-size: 18px;
+          margin-top: -3px;
+          width: 145px;
+          justify-content: flex-end;
+          align-items: center;
+          .time-icon {
+            margin-right: 7px;
+          }
+        }
+      }
+      .recipe-informations-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 20px;
+        font-size: 12px;
+        height: 105px;
+
+        .recipe-ingredients-block {
+          overflow: hidden;
+          div {
+            line-height: 12px;
+          }
+          .recipe-ingredient {
+            font-weight: 700;
+            overflow: hidden;
+          }
+        }
+
+        .recipe-preview {
+          font-family: "Roboto";
+          height: 109px;
+          line-height: 12px;
+          overflow: hidden;
+          font-size: 12px;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #recipes-list {
+    grid-template-columns: repeat(2, 45%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #recipes-list {
+    grid-template-columns: 100%;
+    .recipe-container {
+      margin-bottom: 20px;
+    }
+  }
+}

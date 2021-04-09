@@ -116,8 +116,19 @@
 @media screen and (max-width: 500px) {
   #filters-container {
     .filter-wrapper {
+      height: 59px;
+
+      .filter-button {
+        height: 59px;
+        font-size: 14px;
+      }
+
       .filter-list-container {
         grid-template-columns: repeat(2, 1fr);
+        max-height: 300px;
+        .filter-list-element {
+          font-size: 14px;
+        }
       }
     }
   }

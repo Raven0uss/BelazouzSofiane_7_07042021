@@ -44,8 +44,17 @@
 
 @media screen and (max-width: 500px) {
   #search-bar-container {
+    #search-bar {
+      height: 59px;
+      font-size: 14px;
+      &:focus {
+        height: 57px;
+      }
+    }
+  
     #search-bar-button {
       font-size: 22px;
+      height: 59px;
     }
   }
 }

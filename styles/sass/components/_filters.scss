@@ -40,6 +40,7 @@
       display: none;
       flex-basis: 100%;
       padding-left: 15px;
+      padding-right: 15px;
       margin-bottom: 6px;
       padding-top: 16px;
       z-index: 40;
@@ -48,6 +49,7 @@
       grid-template-columns: repeat(3, 1fr);
       max-height: 400px;
       overflow-y: auto;
+      overflow-x: hidden;
 
       .filter-list-element {
         margin-bottom: 10px;
@@ -106,6 +108,16 @@
       margin-right: 0px;
       &:focus-within {
         width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #filters-container {
+    .filter-wrapper {
+      .filter-list-container {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }

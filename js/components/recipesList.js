@@ -47,7 +47,8 @@ const renderRecipes = (recipes) => {
   recipesListNode.innerHTML = "";
 
   if (recipes.length === 0) {
-    recipesListNode.innerHTML = "C'est vide :(";
+    recipesListNode.innerHTML =
+      '<div class="message-no-result">Aucune recette ne correspond aux critères sélectionnés.</div>';
     return;
   }
 

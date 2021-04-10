@@ -189,6 +189,11 @@ header {
           text-overflow: ellipsis;
           padding-left: 5px; }
 
+.message-no-result {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700; }
+
 @media screen and (max-width: 1024px) {
   #recipes-list {
     grid-template-columns: repeat(2, 45%); } }

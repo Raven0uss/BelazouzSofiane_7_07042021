@@ -4,7 +4,6 @@ import { removeTagFromNamespace, storeTagToNamespace } from "../utils/store.js";
 
 const removeTag = (element, tag) => {
   element.remove();
-  // When remove tag, call a function to send all the tag available
   removeTagFromNamespace(tag);
 };
 
@@ -17,6 +16,12 @@ const checkExistingTag = (tagsContainer, value, type) => {
       `tag tag-${type}` === tag.className
     ) {
       return true;
+    }
+    // The device is an uniq field, so if the new tag selected is also device, we replace
+    // the previous one with the new tag selected
+    if (type === "device" && `tag tag-${type}` === tag.className) {
+      removeTag(tag, { value: tag.innerText, type });
+      return false;
     }
   }
   return false;
@@ -40,7 +45,6 @@ const addTag = (value, type) => {
 
   storeTagToNamespace(value, type);
   tagsContainer.append(tag);
-  // When add tag, call a function to send all the tag available
 };
 
 export { addTag };

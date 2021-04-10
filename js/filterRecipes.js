@@ -90,7 +90,7 @@ const filterRecipes = ({ recipes, tags, search }) => {
 
     // Search
     if (search.length === 0) {
-      result.push(recipe);
+      isTagged && result.push(recipe);
       continue;
     }
     if (isTagged && filterSearch(recipe, normalizeString(search))) {

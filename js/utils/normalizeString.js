@@ -5,6 +5,7 @@ const normalizeString = (str) =>
   str
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+    .toLowerCase()
+    .trim();
 
 export { normalizeString };

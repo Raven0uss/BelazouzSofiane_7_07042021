@@ -15,6 +15,11 @@ const initializeProxySearch = () => {
     },
   };
 
+  // I was wondering, two ways were possible :
+  // - Store directly the filtered recipes and render it
+  // - Or the one I choosed, store the searched keywords and tags to send to the filter algo
+  // The reasons of my choice are for privacy of data (when connected to back) and the amount of data stored in the namespace
+
   const searchModuleValue = window.lppNamespace.searchModule.value;
 
   const proxySearch = new Proxy(searchModuleValue, {

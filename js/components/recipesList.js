@@ -1,3 +1,41 @@
+const formatUnit = (unit) => {
+  switch (unit) {
+    case "gramme":
+    case "grammes":
+      return "g";
+    case "cuillères à soupe":
+    case "cuillère à soupe":
+      return "c.à.s";
+    case "cuillères à café":
+    case "cuillère à café":
+      return "c.à.c";
+    case "litres":
+    case "litre":
+      return "L";
+    default:
+      return unit;
+  }
+};
+
+const renderIngredients = (recipe) => {
+  const { ingredients } = recipe;
+  let ingredientsHTML = "";
+
+  ingredients.forEach((item) => {
+    ingredientsHTML += "<div>";
+    ingredientsHTML += `<span class="recipe-ingredient">${
+      item.ingredient + ("quantity" in item ? ":" : "")
+    }</span>`;
+    if ("quantity" in item) {
+      ingredientsHTML += `<span class="recipe-value"> ${item.quantity}`;
+      ingredientsHTML +=
+        "unit" in item ? ` ${formatUnit(item.unit)}</span>` : "</span>";
+    }
+    ingredientsHTML += "</div>";
+  });
+  return ingredientsHTML;
+};
+
 const renderRecipes = (recipes) => {
   const recipesListNode = document.getElementById("recipes-list");
 
@@ -17,12 +55,7 @@ const renderRecipes = (recipes) => {
         </span>
       </div>
       <div class="recipe-informations-content">
-        <div class="recipe-ingredients-block">
-          <div>
-            <span class="recipe-ingredient">Lait de coco:</span>
-            <span class="recipe-value">3</span>
-          </div>
-        </div>
+        <div class="recipe-ingredients-block">${renderIngredients(recipe)}</div>
         <div class="recipe-preview">${recipe.description}</div>
       </div>
     </div>`;

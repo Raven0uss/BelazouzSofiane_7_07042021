@@ -95,7 +95,8 @@
       transition: width 400ms;
 
       &::placeholder {
-        color: #fff;
+        color: #ffffff;
+        opacity: 1;
       }
     }
   }

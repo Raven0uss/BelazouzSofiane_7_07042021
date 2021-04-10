@@ -37,6 +37,7 @@ const initializeProxySearch = () => {
         updateListRendering(recipesFiltered);
       } else {
         renderRecipes(recipes);
+        updateListRendering(recipes);
       }
       return true;
     },

@@ -3,6 +3,29 @@
 
 import { normalizeString } from "./utils/normalizeString.js";
 
+// Search is send as normalized already
+const filterSearch = (recipe, search) => {
+  if (normalizeString(recipe.name).includes(search)) return true;
+  if (normalizeString(recipe.appliance).includes(search)) return true;
+  if (normalizeString(recipe.description).includes(search)) return true;
+
+  const { ingredients } = recipe;
+  const { ustensils } = recipe;
+
+  for (let index = 0; index < ingredients.length; index++) {
+    const { ingredient } = ingredients[index];
+
+    if (normalizeString(ingredient).includes(search)) return true;
+  }
+
+  for (let index = 0; index < ustensils.length; index++) {
+    const ustensil = ustensils[index];
+
+    if (normalizeString(ustensil).includes(search)) return true;
+  }
+  return false;
+};
+
 const detectTagsType = (tags) => {
   const types = [];
   for (let index = 0; index < tags.length; index++) {
@@ -49,11 +72,12 @@ const filterRecipes = ({ recipes, tags, search }) => {
   if (search.length === 0 && tags.length === 0) return recipes;
   const tagTypes = detectTagsType(tags);
   for (let index = 0; index < recipes.length; index++) {
+    let isTagged = false;
     const recipe = recipes[index];
 
     // Tags
     if (tags.length === 0) {
-      result = Array.from(recipes);
+      isTagged = true;
     } else {
       const tagResults = [];
 
@@ -61,11 +85,17 @@ const filterRecipes = ({ recipes, tags, search }) => {
         const tag = tags[tagIndex];
         tagResults.push(checkTag(recipe, tag.value, tag.type, tagTypes));
       }
-      if (!tagResults.includes(false)) result.push(recipe);
+      if (!tagResults.includes(false)) isTagged = true;
     }
 
     // Search
-    if (search.length === 0) continue;
+    if (search.length === 0) {
+      result.push(recipe);
+      continue;
+    }
+    if (isTagged && filterSearch(recipe, normalizeString(search))) {
+      result.push(recipe);
+    }
   }
   return result;
 };

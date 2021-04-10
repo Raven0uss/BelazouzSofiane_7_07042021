@@ -8,7 +8,7 @@ import { getElements } from "./data/getElements.js";
 import { recipes } from "./data/recipes.js";
 
 const main = () => {
-  const elements = getElements();
+  const elements = getElements(recipes);
 
   addEventsFilters(elements);
   addEventSearchbar();

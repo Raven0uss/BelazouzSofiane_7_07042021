@@ -46,6 +46,11 @@ const renderRecipes = (recipes) => {
 
   recipesListNode.innerHTML = "";
 
+  if (recipes.length === 0) {
+    recipesListNode.innerHTML = "C'est vide :(";
+    return;
+  }
+
   recipes.forEach((recipe) => {
     const recipeContainer = document.createElement("article");
     recipeContainer.className = "recipe-container";

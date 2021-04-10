@@ -1,6 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { filterRecipes } from "./filterRecipes.js";
 import { renderRecipes } from "./components/recipesList.js";
+import { updateListRendering } from "./components/filters.js";
 
 // Global variable with all the parameters of the search
 // Stored in lpp (les petits plats) namespace
@@ -32,6 +33,7 @@ const initializeProxySearch = () => {
       });
 
       renderRecipes(recipesFiltered);
+      updateListRendering(recipesFiltered);
       return true;
     },
   });

@@ -1,6 +1,4 @@
-import { recipes } from "./recipes.js";
-
-const getElements = () => {
+const getElements = (recipes) => {
   const ingredients = [];
   const ustensils = [];
   const devices = [];

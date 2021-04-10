@@ -27,13 +27,17 @@ const initializeProxySearch = () => {
     set: (target, key, value) => {
       target[key] = value;
 
-      const recipesFiltered = filterRecipes({
-        recipes,
-        ...target,
-      });
+      if (target.tags.length > 0 || target.search.trim().length >= 3) {
+        const recipesFiltered = filterRecipes({
+          recipes,
+          ...target,
+        });
 
-      renderRecipes(recipesFiltered);
-      updateListRendering(recipesFiltered);
+        renderRecipes(recipesFiltered);
+        updateListRendering(recipesFiltered);
+      } else {
+        renderRecipes(recipes);
+      }
       return true;
     },
   });

@@ -17,6 +17,11 @@ const formatUnit = (unit) => {
   }
 };
 
+const formatDescription = (description) =>
+  description.length > 180
+    ? `${description.substring(0, 182)} ...`
+    : description;
+
 const renderIngredients = (recipe) => {
   const { ingredients } = recipe;
   let ingredientsHTML = "";
@@ -56,7 +61,9 @@ const renderRecipes = (recipes) => {
       </div>
       <div class="recipe-informations-content">
         <div class="recipe-ingredients-block">${renderIngredients(recipe)}</div>
-        <div class="recipe-preview">${recipe.description}</div>
+        <div class="recipe-preview">${formatDescription(
+          recipe.description
+        )}</div>
       </div>
     </div>`;
 
